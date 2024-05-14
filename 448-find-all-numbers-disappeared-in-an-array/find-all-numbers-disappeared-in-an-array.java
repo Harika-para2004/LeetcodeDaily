@@ -1,23 +1,9 @@
 class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
-        int n = nums.length;
-        ArrayList<Integer> list = new ArrayList<>();
-        HashMap<Integer, Boolean> map = new HashMap<>();
-
-        for(int i=1;i<=n;i++){
-            map.put(i, false);
-        }
-        for(int i=0;i<n;i++){
-            if(map.get(nums[i]) == false){
-                map.put(nums[i], true);
-            }
-        }
-        for(int i=1;i<=n;i++){
-            if(map.get(i) == false){
-                list.add(i);
-            }
-        }
-
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length; ++i) nums[(nums[i] - 1) % nums.length] += nums.length;
+        for (int i = 0; i < nums.length; ++i) if (nums[i] <= nums.length) list.add(i + 1);
         return list;
     }
 }
+
