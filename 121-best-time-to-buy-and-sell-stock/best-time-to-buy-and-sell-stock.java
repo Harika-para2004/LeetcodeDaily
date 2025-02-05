@@ -3,7 +3,7 @@ class Solution {
         int maxp = 0;
         int minpf = prices[0];
         for(int i=1;i<prices.length;i++){
-            minpf = Math.min(minpf, prices[i-1]);
+            minpf = Math.min(minpf, prices[i]);
             maxp = Math.max(maxp, prices[i] - minpf );
             
         } 
